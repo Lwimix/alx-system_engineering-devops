@@ -1,2 +1,2 @@
 #!/bin/bash
-echo 'Cats and cows are calling' | tr -d 'Cc'
+tr -d 'Cc'
