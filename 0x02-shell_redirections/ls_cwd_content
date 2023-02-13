@@ -1,0 +1,19 @@
+total 92
+drwxr-xr-x 2 root root   326 Feb 13 02:43 .
+drwxr-xr-x 6 root root   134 Feb 12 21:18 ..
+-rwxr--r-- 1 root root    32 Feb 12 21:40 0-hello_world
+-rw------- 1 root root 12288 Feb 12 21:27 .0-hello_world.swn
+-rw------- 1 root root 12288 Feb 12 21:23 .0-hello_world.swo
+-rw------- 1 root root 12288 Feb 12 21:20 .0-hello_world.swp
+-rwxr--r-- 1 root root    28 Feb 12 22:04 1-confused_smiley
+-rwxr--r-- 1 root root    29 Feb 12 22:15 2-hellofile
+-rwxr--r-- 1 root root    39 Feb 12 22:17 3-twofiles
+-rwxr--r-- 1 root root    41 Feb 12 22:22 4-lastlines
+-rwxr--r-- 1 root root    41 Feb 12 22:25 5-firstlines
+-rwxr--r-- 1 root root    38 Feb 12 22:43 6-third_line
+-rwxr--r-- 1 root root   211 Feb 13 02:24 7-file
+-rw-r--r-- 1 root root 12288 Feb 13 02:09 .7-file.swp
+-rwxr--r-- 1 root root    36 Feb 13 02:43 8-cwd_state
+-rw-r--r-- 1 root root    17 Feb 12 22:44 iacta
+-rw-r--r-- 1 root root     0 Feb 13 02:44 ls_cwd_content
+-rw-r--r-- 1 root root    53 Feb 13 02:37 touch
