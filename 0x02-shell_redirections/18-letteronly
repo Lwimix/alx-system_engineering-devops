@@ -1,2 +1,2 @@
 #!/bin/bash
-ls [[A-Za-z]*] /etc/ssh/sshd_config | sort
+grep '^[a-zA-Z]' /etc/ssh/sshd_config
