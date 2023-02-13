@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -laAR
+find . -type d -name ".*" -not -name "." -not -name ".."
