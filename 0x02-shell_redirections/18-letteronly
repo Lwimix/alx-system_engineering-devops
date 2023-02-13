@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -a [[A-Za-z]*] /etc/ssh/sshd_config | sort
+ls [[A-Za-z]*] /etc/ssh/sshd_config | sort
