@@ -19,8 +19,14 @@ do
 			else
 				echo $mins
 			fi
-		((mins=mins+1))
-	done
-fi
+			((mins=mins+1))
+		done
+	fi
 	((hrs=hrs+1))
+done
+mins=1
+while [ $mins -lt 60 ]
+do
+	echo $mins
+	((mins=mins+1))
 done
