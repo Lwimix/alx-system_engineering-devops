@@ -2,8 +2,6 @@
 # This script displays the PID of bash, process name and other processes
 #+ with the bash word
 
-function bash_simple ()
-{
-	pgrep -a bash
-}
-bash_simple
+pid=$(pgrep -l bash)
+
+echo "$pid"
