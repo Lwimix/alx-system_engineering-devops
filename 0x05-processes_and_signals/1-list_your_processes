@@ -3,6 +3,6 @@
 
 function list ()
 {
-	ps -auf
+	ps -auxf
 }
 list
