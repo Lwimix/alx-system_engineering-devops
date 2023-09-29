@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script diplays its own PID
+
+function my_pid ()
+{
+	echo $$
+}
+my_pid
