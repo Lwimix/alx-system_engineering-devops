@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script pings an IP address passed as an argument
+
+
+if [ $# -eq 0 ]
+then
+	echo "Usage: 5-is_the_host_on_the_network {IP ADDRESS}"
+else
+	function pinging()
+	{
+		ping -c 5 "$@"
+	}
+	pinging "$@"
+fi
