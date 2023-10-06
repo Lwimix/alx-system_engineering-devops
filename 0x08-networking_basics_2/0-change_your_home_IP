@@ -4,7 +4,9 @@
 
 function rep_faceb()
 {
-	sed -i "1i8.8.8.8\tfacebook.com" /etc/hosts
+	cp /etc/hosts ~/hosts.new
+	sed -i "1i8.8.8.8\tfacebook.com" ~/hosts.new
+	cp -f ~/hosts.new /etc/hosts
 }
 rep_faceb
 
@@ -13,6 +15,8 @@ new_txt="127.0.0.2\tlocalhost"
 
 function rep_loca()
 {
-	sed -i 's/'"$or_txt"'/'"$new_txt"'/g' /etc/hosts
+	cp /etc/hosts ~/hosts.new
+	sed -i 's/'"$or_txt"'/'"$new_txt"'/g' ~/hosts.new
+	cp -f ~/hosts.new /etc/hosts
 }
 rep_loca
