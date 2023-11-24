@@ -1,7 +1,7 @@
 # This script creates a file in /tmp specifying the owner and permissions
 $verbose = nil
 file { '/tmp/school':
-  ensure  => present,
+  ensure  => file,
   mode    => '0744',
   owner   => 'www-data',
   group   => 'www-data',
