@@ -1,9 +1,9 @@
 # This script installs flask from pip3
-class { 'python':
-  pip3 => true,
+package { 'python3-pip':
+  ensure   => present,
 }
 
-python::pip { 'flask':
+package { 'flask':
   ensure   => '2.1.0',
-  provider => '/usr/bin/pip3',
+  provider => 'pip3',
 }
