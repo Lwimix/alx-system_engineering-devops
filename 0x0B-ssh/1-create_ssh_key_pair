@@ -3,4 +3,4 @@
 #+ its private key in the current working directory
 #+ in the file school and school.pub for the public
 #+ key
-ssh-keygen -P "" -t rsa -b 4096 -f school
+ssh-keygen -P "betty" -t rsa -b 4096 -f school
