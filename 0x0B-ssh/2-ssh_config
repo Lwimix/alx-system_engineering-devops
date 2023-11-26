@@ -1,0 +1,4 @@
+# This sets the configurations for SSH on the client side
+Host 269580-web-01
+	IdentityFile ~/.ssh/school
+	IdentitiesOnly yes

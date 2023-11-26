@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script connects to a remote server using the username
+#+ ubuntu and the private key found in ~/.ssh/school
+ssh -q -i ~/.ssh/school ubuntu@54.157.146.163

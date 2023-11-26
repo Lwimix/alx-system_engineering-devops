@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script generates an RSA key pair that saves
+#+ its private key in the current working directory
+#+ in the file school and school.pub for the public
+#+ key
+ssh-keygen -P "" -t rsa -b 4096 -f school
