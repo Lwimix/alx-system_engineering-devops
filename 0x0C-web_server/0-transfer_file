@@ -8,6 +8,6 @@ else
 	ip=$2
 	username=$3
 	ssh_key=$4
-	comm="scp -o StrictHostKeyChecking=no -i ${ssh_key} ${path_to_file} ${username}@${ip}:~/"
-	eval "${comm}"
+	export SCP_OPTIONS="-o StrictHostKeyChecking=no"
+	scp -i "$ssh_key" "$path_to_file" "$username@$ip:~/"
 fi
