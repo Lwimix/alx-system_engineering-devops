@@ -8,5 +8,5 @@ else
 	username=$3
 	ssh_key=$4
 	comm="scp -o StrictHostKeyChecking=no -i ${ssh_key} ${path_to_file} ${username}@${ip}:~/"
-	eval $comm
+	eval "${comm}"
 fi
