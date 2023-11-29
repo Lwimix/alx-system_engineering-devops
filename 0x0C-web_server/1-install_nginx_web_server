@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#This is used to install nginx web server
+sudo apt update && apt -y install nginx
+sudo echo "Hello World!" > /var/www/html/index.html
+sudo service nginx start
