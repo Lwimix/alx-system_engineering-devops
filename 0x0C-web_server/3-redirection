@@ -2,6 +2,6 @@
 #This is used to install nginx web server
 sudo apt update && apt -y install nginx
 sudo ufw allow "Nginx HTTP"
-sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
 sudo service nginx start
