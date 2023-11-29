@@ -9,6 +9,6 @@ else
 	ip=$2
 	username=$3
 	ssh_key=$4
-	export SCP_OPTIONS="-o StrictHostKeyChecking=no"
-	scp -i "$ssh_key" "$path_to_file" "$username@$ip":~/
+	export SCP_OPTIONS=
+	scp -o "StrictHostKeyChecking=no" -i "$ssh_key" "$path_to_file" "$username@$ip":~/
 fi
