@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 # This script sets ups the load balancer for two web servers
 #sudo apt-get -y install --no-install-recommends software-properties-common
-#sudo echo | add-apt-repository ppa:vbernat/haproxy-2.8
+#sudo echo | add-apt-repository ppa:vbernat/haproxy-2.8 > /dev/null 2>&1
 #sudo apt-get -y install haproxy=2.8.\*
 LINES="
 frontend my_front_end
-	bind 127.0.0.1:80
+	bind :80
 	default_backend my_back_end
 
 backend my_back_end
 	balance roundrobin
-	server 269580-web-01 54.157.146.163:8001
-	server 269580-web-02 54.173.124.249:8002"
+	server 269580-web-01 54.157.146.163:80
+	server 269580-web-02 54.173.124.249:80"
 FILE="/etc/haproxy/haproxy.cfg"
-#sudo systemctl restart haproxy
+sudo echo "$LINES" | sudo tee -a "$FILE" > /dev/null 2>&1
+sudo systemctl restart haproxy
