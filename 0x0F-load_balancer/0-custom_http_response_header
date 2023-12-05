@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#This is used to install nginx web server
+sudo apt update && apt -y install nginx
+sudo echo "Hello World!" | sudo tee -a /var/www/html/index.html > /dev/null 2>&1
+SETUP="
+server {
+	listen 80;
+	listen [::]:80;
+	server_name _;
+	root /var/www/html;
+	index index.html;
+}"
+HEADER="add_header X-Served-By '269580-web-01';"
+FILE="/etc/nginx/sites-available/default"
+TEXT="http {"
+CONF="/etc/nginx/nginx.conf"
+sudo echo "$SETUP" | sudo tee -a "$FILE" > /dev/null 2>&1
+sudo sed -i "/$TEXT/a\        $HEADER" "$CONF"
+sudo service nginx restart
