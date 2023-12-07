@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+#This Script starts the nginx service
 sudo apt update && apt -y install nginx > /dev/null 2>&1
 service nginx start
