@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#This script examines a domain and subdomain passed as arguments
+domain="$1"
+sub_domain="$2"
+def_sub_domains=("www" "lb-01" "web-01" "web-02")
+if [[ -n "$sub_domain" ]]
+then
+	full_dom="$sub_domain"."$domain"
+	WEB=$(dig "$full_dom" | grep -A1 'ANSWER SECTION:' | tail -1)
+	RECORD_TYPE=$(awk '{print $4}' <<< "$WEB")
+	DESTINATION=$(awk '{print $5}' <<< "$WEB")
+	echo "The subdomain $sub_domain is a $RECORD_TYPE record and points to $DESTINATION"
+else
+	for sub in "${def_sub_domains[@]}"
+	do
+		full_dom="$sub"."$domain"
+		WEB=$(dig "$full_dom" | grep -A1 'ANSWER SECTION:' | tail -1)
+		RECORD_TYPE=$(awk '{print $4}' <<< "$WEB")
+		DESTINATION=$(awk '{print $5}' <<< "$WEB")
+		echo "The subdomain $sub is a $RECORD_TYPE record and points to $DESTINATION"
+	done
+fi
