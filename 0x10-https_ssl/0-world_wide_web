@@ -3,7 +3,7 @@
 domain="$1"
 sub_domain="$2"
 def_sub_domains=("www" "lb-01" "web-01" "web-02")
-if [[ -n "$sub_domain" ]]
+if [[ "$#" -eq 2 ]]
 then
 	full_dom="$sub_domain"."$domain"
 	WEB=$(dig "$full_dom" | grep -A1 'ANSWER SECTION:' | tail -1)
