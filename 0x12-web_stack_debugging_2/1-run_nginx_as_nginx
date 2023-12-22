@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 #This script sets the owner of nginx process and listening to port 8080
-pid=$(sudo netstat -tulpn | grep 8080 | awk '{print $7}' | cut -d '/' -f1)
-sudo kill "$pid"
+ngnpid=$(sudo netstat -tulpn | grep 8080 | awk '{print $7}' | cut -d '/' -f1)
+sudo kill "$ngnpid"
+file="/usr/sbin/nginx"
+sudo chown -R nginx:nginx /etc/nginx
+sudo chmod u+wr /etc/nginx/nginx.conf
+sudo chown nginx:nginx "$file"
 sudo sed -i 's/#user www-data;/user nginx nginx;/g' /etc/nginx/nginx.conf
 sudo sed -i 's/listen\s*80 default_server;/listen 8080 default_server;/g' /etc/nginx/sites-available/default
-sudo sed -i 's/listen \[::]:80 default_server ipv6only=on;/listen [::]:8080 default_server ipv6only=on;/g' /etc/nginx/sites-available/default
-sudo service nginx restart
+sudo sed -i 's/listen \[::]:80 default_server ipv6only=on;/listen [::]:8080 default_server;/g' /etc/nginx/sites-available/default
+sudo -u nginx service nginx restart
