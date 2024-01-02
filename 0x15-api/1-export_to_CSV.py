@@ -3,8 +3,8 @@ import requests
 import sys
 
 
-def to_do(employee_id):
-    """Prints the tofo list"""
+def to_csv(employee_id):
+    """Converts to CSV"""
     url = f'https://jsonplaceholder.typicode.com/users'
     response = requests.get(url)
     data = response.json()
@@ -29,4 +29,4 @@ def to_do(employee_id):
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        to_do(sys.argv[1])
+        to_csv(sys.argv[1])

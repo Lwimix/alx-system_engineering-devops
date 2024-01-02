@@ -4,6 +4,7 @@ import sys
 
 
 def to_do(employee_id):
+    """Prints to do list"""
     """Prints the tofo list"""
     url = f'https://jsonplaceholder.typicode.com/users'
     response = requests.get(url)
