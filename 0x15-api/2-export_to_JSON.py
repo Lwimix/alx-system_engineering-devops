@@ -14,21 +14,23 @@ def to_json(employee_id):
     inner = {}
     full = []
     if employee_id.isdigit():
+        filename = f"{employee_id}.json"
         employee_id = int(employee_id)
         for obj in data:
-            if employee_id == obj['id']:
+            if employee_id == obj.get('id'):
                 person = obj
                 url2 = f'https://jsonplaceholder.typicode.com/todos'
                 response2 = requests.get(url2)
                 data2 = response2.json()
                 for item in data2:
-                    if item['userId'] == employee_id:
-                        inner["task"] = item["title"]
-                        inner["completed"] = item["completed"]
-                        inner["username"] = person["username"]
+                    if item.get('userId') == employee_id:
+                        inner["task"] = item.get("title")
+                        inner["completed"] = item.get("completed")
+                        inner["username"] = person.get("username")
                         full.append(inner)
         end = {f'{my_id}': full}
-        print(end)
+        with open(filename, 'w', newline='') as f:
+            f.write(f'{end}')
 
 
 if __name__ == '__main__':

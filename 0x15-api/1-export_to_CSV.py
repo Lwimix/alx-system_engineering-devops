@@ -13,17 +13,17 @@ def to_csv(employee_id):
         filename = f"{employee_id}.csv"
         employee_id = int(employee_id)
         for obj in data:
-            if employee_id == obj['id']:
+            if employee_id == obj.get('id'):
                 person = obj
-                line = f'"{str(employee_id)}", "{person["username"]}"'
+                line = f'"{str(employee_id)}", "{person.get("username")}"'
                 url2 = f'https://jsonplaceholder.typicode.com/todos'
                 response2 = requests.get(url2)
                 data2 = response2.json()
                 with open(filename, 'w', newline='') as f:
                     for it in data2:
-                        if it['userId'] == employee_id:
-                            comp = f'"{it["completed"]}"'
-                            task = f'"{it["title"]}"'
+                        if it.get('userId') == employee_id:
+                            comp = f'"{it.get("completed")}"'
+                            task = f'"{it.get("title")}"'
                             f.write(f'{line}, {comp}, {task}\n')
 
 

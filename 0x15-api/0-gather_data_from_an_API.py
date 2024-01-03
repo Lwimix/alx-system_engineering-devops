@@ -13,7 +13,7 @@ def to_do(employee_id):
     if employee_id.isdigit():
         employee_id = int(employee_id)
         for obj in data:
-            if employee_id == obj['id']:
+            if employee_id == obj.get('id'):
                 person = obj
                 url2 = f'https://jsonplaceholder.typicode.com/todos'
                 response2 = requests.get(url2)
@@ -21,16 +21,16 @@ def to_do(employee_id):
                 tasks = 0
                 i = 0
                 for piece in data2:
-                    if piece['userId'] == employee_id:
+                    if piece.get('userId') == employee_id:
                         tasks = tasks + 1
-                        if piece['completed'] is True:
+                        if piece.get('completed') is True:
                             i = i + 1
                 print(f"Employee {person['name']} is done with ({i}/{tasks})")
                 for item in data2:
-                    if item['userId'] == employee_id:
+                    if item.get('userId') == employee_id:
                         tasks = tasks + 1
-                        if item['completed'] is True:
-                            print(f"\t{item['title']}")
+                        if item.get('completed') is True:
+                            print(f"\t{item.get('title')}")
 
 
 if __name__ == '__main__':
