@@ -26,12 +26,12 @@ def to_do(employee_id):
                         tasks = tasks + 1
                         if piece.get('completed') is True:
                             i = i + 1
-                print(f"Employee {person['name']} is done with ({i}/{tasks})")
+                print(f"Employee {person['name']} is done with tasks({i}/{tasks})")
                 for item in data2:
                     if item.get('userId') == employee_id:
                         tasks = tasks + 1
                         if item.get('completed') is True:
-                            print(f"\t{item.get('title')}")
+                            print(f"\t {item.get('title')}")
 
 
 if __name__ == '__main__':
