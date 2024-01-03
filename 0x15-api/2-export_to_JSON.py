@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """This module contains the to_json function"""
+import json
 import requests
 import sys
 
@@ -32,7 +33,7 @@ if __name__ == '__main__':
                             full.append(inner)
             end = {f'{my_id}': full}
             with open(filename, 'w', newline='') as f:
-                f.write(f'{end}')
+                json.dump(end, f)
 
 if len(sys.argv) > 1:
     to_json(sys.argv[1])
