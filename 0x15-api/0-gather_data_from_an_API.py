@@ -27,7 +27,7 @@ def to_do(employee_id):
                         tasks = tasks + 1
                         if piece.get('completed') is True:
                             i = i + 1
-                print(f"Employee {name} is done with tasks({i}/{tasks})")
+                print(f"Employee {name} is done with tasks({i}/{tasks}):")
                 for item in data2:
                     if item.get('userId') == employee_id:
                         tasks = tasks + 1
