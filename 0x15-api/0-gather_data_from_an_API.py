@@ -21,12 +21,13 @@ def to_do(employee_id):
                 data2 = response2.json()
                 tasks = 0
                 i = 0
+                name = person.get('name')
                 for piece in data2:
                     if piece.get('userId') == employee_id:
                         tasks = tasks + 1
                         if piece.get('completed') is True:
                             i = i + 1
-                print(f"Employee {person['name']} is done with tasks({i}/{tasks})")
+                print(f"Employee {name} is done with tasks({i}/{tasks})")
                 for item in data2:
                     if item.get('userId') == employee_id:
                         tasks = tasks + 1
