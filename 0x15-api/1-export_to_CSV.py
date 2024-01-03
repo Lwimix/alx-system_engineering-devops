@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """This module contains the to_csv function"""
+import csv
 import requests
 import sys
 
@@ -16,16 +17,19 @@ def to_csv(employee_id):
         for obj in data:
             if employee_id == obj.get('id'):
                 person = obj
-                line = f'"{str(employee_id)}", "{person.get("username")}"'
+                my_id = employee_id
+                user = person.get("username")
                 url2 = f'https://jsonplaceholder.typicode.com/todos'
                 response2 = requests.get(url2)
                 data2 = response2.json()
                 with open(filename, 'w', newline='') as f:
+                    writer = csv.writer(f)
                     for it in data2:
                         if it.get('userId') == employee_id:
-                            comp = f'"{it.get("completed")}"'
-                            task = f'"{it.get("title")}"'
-                            f.write(f'{line}, {comp}, {task}\n')
+                            comp = it.get("completed")
+                            task = it.get("title")
+                            my_tup = [my_id, user, comp, task]
+                            writer.writerow(my_tup)
 
 
 if __name__ == '__main__':
