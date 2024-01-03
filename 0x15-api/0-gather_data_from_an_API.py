@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""This module contains the to_do function"""
 import requests
 import sys
 

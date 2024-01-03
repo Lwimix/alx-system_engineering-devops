@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""This module contains the to_csv function"""
 import requests
 import sys
 
