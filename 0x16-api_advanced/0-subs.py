@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module contains the to_do function"""
+"""This module contains the number_of_subscribers function"""
 import requests
 import sys
 
