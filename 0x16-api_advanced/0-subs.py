@@ -17,8 +17,6 @@ def number_of_subscribers(subreddit):
         for sub in data["data"]["children"]:
             if (sub["data"]["display_name"] == f"{subreddit}"):
                 return (sub["data"]["subscribers"])
-        return (0)
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
-    if len(sys.argv) > 1:
-        number_of_subscribers(sys.argv[1])
+    return (0)
