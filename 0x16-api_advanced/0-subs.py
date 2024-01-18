@@ -6,14 +6,13 @@ import sys
 
 def number_of_subscribers(subreddit):
     """Prints out number of subscribers for a subredddit"""
-    url = "https://www.reddit.com/subreddits/search.json"
-    params = {"q": f"{subreddit}"}
+    url = f"https://www.reddit.com/r/{subreddit}/about/.json"
     header = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
             }
-    response = requests.get(url, headers=header, params=params)
+    response = requests.get(url, headers=header)
     data = response.json()
-    for sub in data["data"]["children"]:
-        if (sub["data"]["display_name"] == f"{subreddit}"):
-            return (sub["data"]["subscribers"])
-    return (0)
+    if ("error" in data.keys()):
+        return (0)
+    else:
+        return (data["data"]["subscribers"])
