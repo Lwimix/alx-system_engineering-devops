@@ -2,6 +2,7 @@
 """This module contains the to_do function"""
 import requests
 import sys
+import json
 
 
 def top_ten(subreddit):
@@ -13,11 +14,13 @@ def top_ten(subreddit):
     header = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
             }
+    response = requests.get(url, headers=header, params=params)
     try:
-        response = requests.get(url, headers=header, params=params)
         data = response.json()
-        for sub in data["data"]["children"]:
-            print(sub["data"]["title"])
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred: {e}")
-    return (0)
+        if ("error" in data.keys()):
+            print(None)
+        else:
+            for sub in data["data"]["children"]:
+                print(sub["data"]["title"])
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON: {e}")
