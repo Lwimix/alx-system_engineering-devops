@@ -11,12 +11,9 @@ def number_of_subscribers(subreddit):
     header = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
             }
-    try:
-        response = requests.get(url, headers=header, params=params)
-        data = response.json()
-        for sub in data["data"]["children"]:
-            if (sub["data"]["display_name"] == f"{subreddit}"):
-                return (sub["data"]["subscribers"])
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred: {e}")
+    response = requests.get(url, headers=header, params=params)
+    data = response.json()
+    for sub in data["data"]["children"]:
+        if (sub["data"]["display_name"] == f"{subreddit}"):
+            return (sub["data"]["subscribers"])
     return (0)
