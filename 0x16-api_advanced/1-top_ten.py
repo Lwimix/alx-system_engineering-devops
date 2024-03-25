@@ -6,7 +6,7 @@ import sys
 
 def top_ten(subreddit):
     """Prints out top ten posts for a subredddit"""
-    url = f"https://www.reddit.com/r/{subreddit}/top/.json"
+    url = f"https://www.reddit.com/r/{subreddit}/top.json"
     params = {
             "limit": 10
             }
