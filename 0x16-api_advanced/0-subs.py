@@ -1,8 +1,14 @@
 #!/usr/bin/python3
+"""
+Contains the function number_of_subscribers
+"""
 import requests
 
 
 def number_of_subscribers(subreddit):
+    """
+    Returns number of subscribers of a particular subreddit
+    """
     url = f"https://www.reddit.com/r/{subreddit}.json"
     headers = {'User-Agent': 'Chrome/79.0.3945.79'}
     response = requests.get(url, headers=headers)

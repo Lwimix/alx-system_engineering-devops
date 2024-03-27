@@ -1,8 +1,14 @@
 #!usr/bin/python3
+"""
+Contains the top_ten function
+"""
 import requests
 
 
 def top_ten(subreddit):
+    """
+    Returns the top ten hot posts from a subreddit
+    """
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     headers = {'User-Agent': 'Chrome/79.0.3945.79'}
     params = {'limit': 10}
